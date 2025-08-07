@@ -14,6 +14,7 @@ const leftButtons = [
 ];
 
 const rightButtons = ["/", "x", "-", "+", "="];
+
 function add(a, b) {
   return a + b;
 }
