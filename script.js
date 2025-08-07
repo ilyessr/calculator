@@ -1,22 +1,19 @@
-const buttons = [
+const leftButtons = [
   "7",
   "8",
   "9",
-  "/",
   "4",
   "5",
   "6",
-  "*",
   "1",
   "2",
   "3",
-  "-",
   "0",
   ".",
-  "=",
-  "+",
+  "C",
 ];
 
+const rightButtons = ["/", "x", "-", "+", "="];
 function add(a, b) {
   return a + b;
 }
@@ -49,21 +46,23 @@ function operate(operator, a, b) {
   }
 }
 
-function initiateCalculator() {
-  const buttonsContainer = document.querySelector(".buttons");
+function initiateButtons() {
+  const leftButtonsElement = document.querySelector("#leftButtons");
+  const rightButtonsElement = document.querySelector("#rightButtons");
 
-  buttons.forEach((symbol) => {
+  leftButtons.forEach((symbol) => {
     const button = document.createElement("button");
     button.textContent = symbol;
-    button.classList.add("btn");
     button.setAttribute("data-value", symbol);
-    buttonsContainer.appendChild(button);
+    leftButtonsElement.appendChild(button);
   });
 
-  const clearButton = document.createElement("button");
-  clearButton.textContent = "Clear";
-  clearButton.classList.add("clear");
-  buttonsContainer.appendChild(clearButton);
+  rightButtons.forEach((symbol) => {
+    const button = document.createElement("button");
+    button.textContent = symbol;
+    button.setAttribute("data-value", symbol);
+    rightButtonsElement.appendChild(button);
+  });
 }
 
-initiateCalculator();
+initiateButtons();
